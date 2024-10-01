@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User save(User user) {
         Optional<Role> optionalRoleUser = roleRepository.findByName("ROLE_USER");
         List<Role> roles = new ArrayList<>();
@@ -49,5 +50,11 @@ public class UserServiceImpl implements UserService {
         user.setPassword_hash(passwordEncoder.encode(user.getPassword_hash()));
 
         return userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
     }
 }

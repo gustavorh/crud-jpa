@@ -3,6 +3,7 @@ package dev.gustavorh.crudjpa.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.gustavorh.crudjpa.validations.ExistsUsername;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -19,6 +20,7 @@ public class User {
     private Long id;
 
     @Column(unique = true)
+    @ExistsUsername
     @NotBlank
     @Size(min = 3, max = 12)
     private String username;
