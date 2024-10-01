@@ -4,7 +4,6 @@ import dev.gustavorh.crudjpa.entities.Role;
 import dev.gustavorh.crudjpa.entities.User;
 import dev.gustavorh.crudjpa.repositories.RoleRepository;
 import dev.gustavorh.crudjpa.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -3,7 +3,6 @@ package dev.gustavorh.crudjpa.controllers;
 import dev.gustavorh.crudjpa.entities.Product;
 import dev.gustavorh.crudjpa.services.ProductService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
