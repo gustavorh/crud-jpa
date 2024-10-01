@@ -2,6 +2,7 @@ package dev.gustavorh.crudjpa.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -19,7 +20,8 @@ public class SpringSecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/api/users").permitAll() // Reglas de negocio, ruta a permitir acceso.
+                        .requestMatchers(HttpMethod.GET,"/api/users").permitAll() // Reglas de negocio, ruta a permitir acceso.
+                        .requestMatchers(HttpMethod.POST,"/api/users/register").permitAll() // Reglas de negocio, ruta a permitir acceso.
                         .anyRequest().authenticated()) // Cualquier otro request, necesita autorización.
                         .csrf(config -> config.disable())
                         .sessionManagement(management ->
