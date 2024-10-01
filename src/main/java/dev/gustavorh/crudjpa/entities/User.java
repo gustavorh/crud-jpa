@@ -25,6 +25,11 @@ public class User {
 
     private boolean enabled;
 
+    @PrePersist
+    public void prePersist() {
+        enabled = true;
+    }
+
     @ManyToMany
     @JoinTable(
             name = "users_roles",
